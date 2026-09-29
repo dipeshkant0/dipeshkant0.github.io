@@ -590,7 +590,7 @@
     /* Toolkit Grid */
     .toolkit-wrap {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
       gap: 1.25rem;
       margin: 1.5rem 0;
     }
@@ -599,7 +599,7 @@
       background: var(--bg-surface);
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 1.35rem 1.5rem;
+      padding: 1.35rem 1.25rem;
       box-shadow: var(--shadow-sm);
     }
 
@@ -619,22 +619,36 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 0.45rem;
+      gap: 0.5rem;
       font-size: 0.88rem;
       color: var(--text-muted);
     }
 
     .toolkit-list li {
-      display: flex;
-      align-items: baseline;
-      gap: 0.5rem;
+      position: relative;
+      padding-left: 1.25rem;
+      line-height: 1.5;
     }
 
     .toolkit-list li::before {
       content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
       color: var(--accent);
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       font-weight: 700;
+    }
+
+    .toolkit-list code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82em;
+      padding: 0.1em 0.35em;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--accent);
+      white-space: nowrap;
     }
 
     /* Code Window */
@@ -1282,8 +1296,8 @@
             <h3>Concurrency &amp; Low-Latency</h3>
             <ul class="toolkit-list">
               <li>Lock-Free TLS &amp; Tree Reductions</li>
-              <li>Non-Blocking MPI (<code>MPI_Bsend</code> / <code>Iprobe</code>)</li>
-              <li>OpenMP 4.5+ Guided Scheduling</li>
+              <li>Non-Blocking MPI (<span style="white-space: nowrap;"><code>MPI_Bsend</code> / <code>Iprobe</code></span>)</li>
+              <li>OpenMP 4.5+</li>
               <li>Asynchronous Background Task Offloading</li>
               <li>64-bit Hardware Bitset SIMD Operations</li>
               <li>ARM NEON 128-bit SIMD Intrinsics</li>
@@ -1482,8 +1496,8 @@ Lexer and LALR parser constructing strongly-typed Abstract Syntax Tree (AST) nod
 ### 11. [Integrated_System](https://github.com/dipeshkant0/Integrated_System) (C++)
 Process submission dispatch, sandbox execution, telemetry monitoring, and memory tracking.
 
-## Technical Toolkit
-- Concurrency & Latency: Lock-Free TLS, O(log P) Tree Reductions, Non-Blocking MPI (Bsend/Iprobe), OpenMP
+## Technical Competencies
+- Concurrency & Latency: Lock-Free TLS & Tree Reductions, Non-Blocking MPI (MPI_Bsend / Iprobe), OpenMP 4.5+
 - Memory & Cache: Zero-Allocation Memory Banking, Shared Memory Tiling, Register Bypass, Coalescing
 - Databases & Compilers: 2Q Buffer Pool, Out-of-Core External Sort, Bytecode ISA, Flex & Bison, Tracing GC
 - OS & Kernel: Linux Syscalls, ptrace Process Tracing, POSIX Signals, Pipes, File Descriptors (FD 3-6)
